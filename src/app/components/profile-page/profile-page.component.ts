@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { GetUserProfileService } from '../get-user-profile.service';
+import { GetUserProfileService } from '../../services/user/get-user-profile.service';
 import { throwError, catchError, Observable } from 'rxjs';
 
 
