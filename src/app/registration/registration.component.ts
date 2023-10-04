@@ -1,19 +1,5 @@
 import { Component } from '@angular/core';
-import {
-  FormControl,
-  FormGroupDirective,
-  NgForm,
-  Validators
-} from '@angular/forms';
-import { ErrorStateMatcher } from '@angular/material/core';
-import { SuccessfulRequestService } from '../successful-request.service';
-
-export class MyErrorStateMatcher implements ErrorStateMatcher {
-  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
-    const isSubmitted = form && form.submitted;
-    return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
-  }
-}
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-registration',
@@ -21,8 +7,22 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   styleUrls: ['./registration.component.css']
 })
 export class RegistrationComponent {
-  emailFormControl = new FormControl('', [Validators.required, Validators.email]);
-  matcher = new MyErrorStateMatcher();
-  constructor(public successfulRequest: SuccessfulRequestService) { }
+  registrationForm: FormGroup;
 
+  constructor(private fb: FormBuilder) {
+    this.registrationForm = this.fb.group({
+      name: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', Validators.required],
+      bio: ['', Validators.required]
+    });
+  }
+
+  onSubmit() {
+    if (this.registrationForm.valid) {
+      // If form is valid print to console data
+      console.log(this.registrationForm.value);
+    }
+  }
 }
+

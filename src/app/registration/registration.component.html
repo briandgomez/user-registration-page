@@ -1,31 +1,39 @@
 <h1>User Registration</h1>
-<form (ngSubmit)="successfulRequest.validateInputFields()">
+<form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
     <label for="name">Name:</label>
     <mat-form-field>
-        <input matInput id="name" required placeholder="Name">
+        <input matInput id="name" formControlName="name" placeholder="Name">
+        <mat-error *ngIf="registrationForm.get('name')?.hasError('required')">
+            Name is required
+        </mat-error>
     </mat-form-field><br>
 
-    <mat-label>Email</mat-label>
-    <mat-form-field class="example-full-width">
-        <input type="email" matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher"
-            placeholder="Ex: name@example.com">
-        <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+    <label for="email">Email:</label>
+    <mat-form-field>
+        <input type="email" matInput formControlName="email" placeholder="Ex: name@example.com">
+        <mat-error *ngIf="registrationForm.get('email')?.hasError('email')">
             Please enter a valid email address
         </mat-error>
-        <mat-error *ngIf="emailFormControl.hasError('required')">
-            Email is <strong>required</strong>
+        <mat-error *ngIf="registrationForm.get('email')?.hasError('required')">
+            Email is required
         </mat-error>
     </mat-form-field><br>
 
     <label for="password">Password:</label>
     <mat-form-field>
-        <input matInput type="password" id="password" required placeholder="Password">
+        <input type="password" matInput formControlName="password" placeholder="Password">
+        <mat-error *ngIf="registrationForm.get('password')?.hasError('required')">
+            Password is required
+        </mat-error>
     </mat-form-field><br>
 
-    <label for="password">Bio:</label>
+    <label for="bio">Bio:</label>
     <mat-form-field>
-        <input matInput type="bio" id="bio" required>
+        <textarea matInput formControlName="bio" placeholder="Bio"></textarea>
+        <mat-error *ngIf="registrationForm.get('bio')?.hasError('required')">
+            Bio is required
+        </mat-error>
     </mat-form-field><br>
 
-    <button routerLink="/profile" mat-raised-button type="submit" color="warn">Register</button>
+    <button routerLink="/profile" mat-raised-button color="warn" type="submit" [disabled]="registrationForm.invalid">Register</button>
 </form>
