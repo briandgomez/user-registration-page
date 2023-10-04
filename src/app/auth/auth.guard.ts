@@ -1,17 +1,17 @@
 import { Injectable, inject } from '@angular/core';
 import { CanActivateFn, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
 import { Observable, catchError, map, of } from 'rxjs';
-import { SuccessfulRequestService } from '../successful-request.service';
+import { AuthenticationService } from '../auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class AuthGuardClass {
-  constructor(private successfulRequest: SuccessfulRequestService, private router: Router) { }
+  constructor(private authenticateService: AuthenticationService, private router: Router) { }
 
   canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
-    return this.successfulRequest.validateInputFields().pipe(map((response) => {
+    return this.authenticateService.validateInputFields().pipe(map((response) => {
       if (response) {
         return true;
       }

@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 
-export class SuccessfulRequestService {
+export class AuthenticationService {
   successMessage: string = '';
 
   constructor(private http: HttpClient) { }
