@@ -8,8 +8,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { HttpClientModule } from '@angular/common/http';
-import { ProfilePageComponent } from './profile-page/profile-page.component';
-import { RegistrationComponent } from './registration/registration.component';
+import { ProfilePageComponent } from './components/profile-page/profile-page.component';
+import { RegistrationComponent } from './components/registration/registration.component';
 
 
 

@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { ProfilePageComponent } from './profile-page/profile-page.component';
-import { RegistrationComponent } from './registration/registration.component';
+import { ProfilePageComponent } from './components/profile-page/profile-page.component';
+import { RegistrationComponent } from './components/registration/registration.component';
 
-import { AuthGuardClass } from './auth/auth.guard';
+import { AuthGuardClass } from './guards/auth/auth.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: '/registration', pathMatch: 'full' },
