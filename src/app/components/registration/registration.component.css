@@ -10,6 +10,7 @@ h1 {
 
 h1 {
     height: 25vh;
+    text-decoration: underline;
 }
 
 .input-container {

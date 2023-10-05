@@ -10,6 +10,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { HttpClientModule } from '@angular/common/http';
 import { ProfilePageComponent } from './components/profile-page/profile-page.component';
 import { RegistrationComponent } from './components/registration/registration.component';
+import {MatCardModule} from '@angular/material/card';
 
 
 
@@ -28,7 +29,8 @@ import { RegistrationComponent } from './components/registration/registration.co
     BrowserAnimationsModule,
     MatInputModule,
     MatButtonModule,
-    HttpClientModule
+    HttpClientModule, 
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
