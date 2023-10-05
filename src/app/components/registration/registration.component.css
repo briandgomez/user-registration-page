@@ -1,0 +1,28 @@
+form,
+h1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+h1 {
+    height: 25vh;
+}
+
+.input-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-field {
+    width: 100%; 
+    width: 500px;
+}
+
+label {
+    font-size: 20px;
+    font-family: monospace;
+}
