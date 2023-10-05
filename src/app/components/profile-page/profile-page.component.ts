@@ -9,7 +9,7 @@ import { throwError, catchError, Observable } from 'rxjs';
   styleUrls: ['./profile-page.component.css']
 })
 export class ProfilePageComponent {
-  userProfile: any;
+  userProfile: any = {}
 
   constructor(public profileService: GetUserProfileService) { }
 
@@ -22,6 +22,5 @@ export class ProfilePageComponent {
         console.error('Error getting user profile:', error);
       }
     )
-
   }
 }
