@@ -11,7 +11,7 @@
     <div class="input-container">
         <label for="email">Email:</label>
         <mat-form-field class="input-field">
-            <input type="email" matInput formControlName="email" placeholder="Ex: name@example.com">
+            <input id="email" type="email" matInput formControlName="email" placeholder="Ex: name@example.com">
             <mat-error *ngIf="registrationForm.get('email')?.hasError('email')">
                 Please enter a valid email address
             </mat-error>
@@ -24,7 +24,7 @@
     <div class="input-container">
         <label for="password">Password:</label>
         <mat-form-field class="input-field">
-            <input type="password" matInput formControlName="password" placeholder="Password">
+            <input id="password" type="password" matInput formControlName="password" placeholder="Password">
             <mat-error *ngIf="registrationForm.get('password')?.hasError('required')">
                 Password is required
             </mat-error>
@@ -34,7 +34,7 @@
     <div class="input-container">
         <label for="bio">Bio:</label>
         <mat-form-field class="input-field">
-            <textarea matInput formControlName="bio"></textarea>
+            <textarea id="bio" matInput formControlName="bio"></textarea>
             <mat-error *ngIf="registrationForm.get('bio')?.hasError('required')">
                 Bio is required
             </mat-error>
